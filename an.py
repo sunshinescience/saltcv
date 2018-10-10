@@ -21,7 +21,6 @@ def sunshines_mask(filename):
     # *** Note: if you want to run all of the masks, use the code below ***
     for image_index in range(num_images):
         image_name = lines_list[image_index].strip().split(',')[0]
-        f_name = os.path.join('/Users', 'sa4312', 'Dropbox', 'tgs', 'data_set', 'all', 'train', 'images', image_name + '.png')
         print ('Image index {} has the name: {}'.format((image_index), image_name))
 
         f_name_mask = os.path.join('/Users', 'sa4312', 'Dropbox', 'tgs','data_set', 'all', 'train', 'masks', image_name + '.png')
