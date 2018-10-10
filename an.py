@@ -22,7 +22,6 @@ def sunshines_mask(filename):
     for image_index in range(num_images):
         image_name = lines_list[image_index].strip().split(',')[0]
         print ('Image index {} has the name: {}'.format((image_index), image_name))
-
         f_name_mask = os.path.join('/Users', 'sa4312', 'Dropbox', 'tgs','data_set', 'all', 'train', 'masks', image_name + '.png')
         picture_mask = scipy.misc.imread(f_name_mask, flatten=True)
         # Flatten the above array called 'picture_mask' in order to create a single row of the pixel numbers
