@@ -26,7 +26,7 @@ def sunshines_mask(filename):
         picture_mask = scipy.misc.imread(f_name_mask, flatten=True)
         # Flatten the above array called 'picture_mask' in order to create a single row of the pixel numbers
         mask_flattened = np.transpose(picture_mask).flatten()
-        # The number in 'mask_flattened' is 65535 if it is a white pixel (salt), but the number is 0 if its a black pixel (no salt)
+        # The number in 'mask_flattened' is 65535 if it is a white pixel (salt), but the number is 0 if it is a black pixel (no salt)
         mask_flattened_no_salt = np.all(mask_flattened[:] == 0) 
         mask_flattened_salt = np.all(mask_flattened[:] == 65535) 
         if mask_flattened_no_salt == True:
@@ -41,7 +41,6 @@ def sunshines_mask(filename):
 
         # The differences between consecutive elements (i.e., subtracted consecutive elements) of the array called 'pixel_change_location'
         patch_lengths = np.ediff1d(pixel_change_location, to_end=Len_last_patch, to_begin=None)
-        print ('Patch lengths: ', patch_lengths) 
 
         # list of index numbers for our mask
         index_list_salt = []
@@ -81,8 +80,6 @@ def sunshines_mask(filename):
                     index_list_salt.append(k)
                 for l in patch_lengths[1::2]:
                     patch_list_salt.append(l)
-        print ('index_list_salt: {}'.format(index_list_salt[0:20]))
-        print ('patch_list_salt: {}'.format(patch_list_salt[0:20]))
 
         # Get a list that gives you a mask according to the image index that you specify
         # provide a list that combines the two lists directly above, in order to match the train.csv list
@@ -114,8 +111,7 @@ def sunshines_mask(filename):
 
     '''
     # *** Note: if you want to run the mask individually, use the code below ***
-    # Creating a path to an image with the correct file format
-    # Enter the image number (as image_index) from the train.csv file (minus 2 digits when you input it here in the code)
+    # Enter the image number (as image_index) from the train.csv file 
     image_index = 3613
     image_name = lines_list[image_index].strip().split(',')[0]
     f_name = os.path.join('/Users', 'sa4312', 'Dropbox', 'tgs', 'data_set', 'all', 'train', 'images', image_name + '.png')
