@@ -147,8 +147,6 @@ def mask_matches(train_mask):
     plt.show()
 '''
 
-filename = '/Users/sa4312/Dropbox/tgs/data_set/all/train.csv'
-
 '''
 image_index = 3600 # A chosen image index from the train.csv file
 picture_mask = pic_mask(filename, image_index)
@@ -159,7 +157,6 @@ print ('Our mask is: {}'.format(our_mask))
 mask_matches(train_mask)
 '''
 
-all_masks(filename)
-
 if __name__ == "__main__":
+    filename = '/Users/sa4312/Dropbox/tgs/data_set/all/train.csv'
     all_masks(filename)
